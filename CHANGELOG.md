@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial project setup with Maven
 - PostgreSQL database integration with C3P0 connection pooling
-- Configuration management with application.properties
+- Configuration management with application.properties.template
 - Email support with JavaMail API
 - Logging configuration with java.util.logging and SLF4J
 - Health check endpoint with database status monitoring

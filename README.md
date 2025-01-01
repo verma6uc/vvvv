@@ -22,7 +22,7 @@ A Java web application using servlets, PostgreSQL, and various utility libraries
 
 ## Configuration
 
-The application uses `application.properties` for configuration. Key configuration areas include:
+Copy `src/main/resources/application.properties.template` to `src/main/resources/application.properties` and configure your settings. The application uses this properties file for configuration. Key configuration areas include:
 
 ### Database Configuration
 ```properties
