@@ -4,6 +4,7 @@ A Java web application using servlets, PostgreSQL, and various utility libraries
 
 ## Features
 
+### Backend
 - Pure Servlet-based web application (no Spring/Jersey)
 - PostgreSQL database integration with C3P0 connection pooling
 - Email support via JavaMail API
@@ -13,12 +14,58 @@ A Java web application using servlets, PostgreSQL, and various utility libraries
 - Security headers and encoding filters
 - Error pages and proper exception handling
 
+### Frontend
+- Modern, responsive UI with Bootstrap 5
+- Dark theme support with CSS variables
+- jQuery for DOM manipulation and AJAX
+- Feather Icons for consistent iconography
+- Full-width layout with responsive breakpoints
+- Custom CSS with modern best practices:
+  * CSS Grid and Flexbox for layouts
+  * CSS Variables for theming
+  * Mobile-first approach
+  * Smooth transitions and animations
+
 ## Prerequisites
 
+### Backend Requirements
 - Java 11 or higher
 - PostgreSQL database
 - Maven 3.6 or higher
 - Servlet container (e.g., Tomcat 9.x)
+
+### Frontend Dependencies
+```html
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Bootstrap 5 Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Feather Icons -->
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+```
+
+### Theme Configuration
+The application uses a customizable dark theme with CSS variables:
+```css
+:root {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2c3e50;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-color: #08A0F8;
+  
+  /* Layout */
+  --header-height: 60px;
+  --sidebar-width: 250px;
+  --content-max-width: 1440px;
+}
+```
 
 ## Configuration
 
