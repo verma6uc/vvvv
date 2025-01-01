@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvi Web Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .info-section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .endpoints {
+            list-style: none;
+            padding: 0;
+        }
+        .endpoints li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e8f4f8;
+            border-radius: 4px;
+        }
+        .endpoints a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .endpoints a:hover {
+            text-decoration: underline;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        #healthStatus {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Yuvi Web Application</h1>
+        
+        <div class="info-section">
+            <h2>Application Information</h2>
+            <p>A Java web application using servlets, PostgreSQL, and various utility libraries.</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Available Endpoints</h2>
+            <ul class="endpoints">
+                <li>
+                    <a href="/health" id="healthLink">/health</a>
+                    <p>Health check endpoint - Monitors application and database status</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="status">
+            <h2>Current Status</h2>
+            <div id="healthStatus">Checking application status...</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to check health status
+        async function checkHealth() {
+            try {
+                const response = await fetch('/health');
+                const data = await response.json();
+                const statusDiv = document.getElementById('healthStatus');
+                
+                if (data.status === 'UP') {
+                    statusDiv.style.color = '#27ae60';
+                    statusDiv.innerHTML = `
+                        Status: ${data.status}<br>
+                        Build: ${data.buildNumber}<br>
+                        Database: ${data.components.database}
+                    `;
+                } else {
+                    statusDiv.style.color = '#c0392b';
+                    statusDiv.innerHTML = `
+                        Status: ${data.status}<br>
+                        Build: ${data.buildNumber}<br>
+                        Database: ${data.components.database}
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('healthStatus').innerHTML = 
+                    'Error checking application status: ' + error.message;
+                document.getElementById('healthStatus').style.color = '#c0392b';
+            }
+        }
+
+        // Check health status on page load
+        checkHealth();
+
+        // Refresh status every 30 seconds
+        setInterval(checkHealth, 30000);
+    </script>
+</body>
+</html>

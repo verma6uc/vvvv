@@ -1,0 +1,34 @@
+database.url=jdbc:postgresql://localhost:5432/your_database
+database.username=your_username
+database.password=your_password
+c3p0.minPoolSize=5
+c3p0.maxPoolSize=100
+c3p0.acquireIncrement=10
+c3p0.maxIdleTime=1800
+c3p0.unreturnedConnectionTimeout=30
+c3p0.debugUnreturnedConnectionStackTraces=true
+
+openai.api.key=YOUR_OPENAI_API_KEY
+antropic_key=YOUR_ANTHROPIC_API_KEY
+
+base.url=your_base_url
+
+# SMTP server host
+mail.smtp.host=your_smtp_host
+# SMTP server port
+mail.smtp.port=465
+# Enable SMTP authentication
+mail.smtp.auth=true
+# Enable STARTTLS
+mail.smtp.ssl.enable=true
+# Email account username
+mail.smtp.username=YOUR_SMTP_USERNAME
+# Email account password
+mail.smtp.password=YOUR_SMTP_PASSWORD
+# Email from address
+mail.smtp.from=your_from_email
+
+# Keycloak realm name
+tenant.realm=
+build.number=1.0.0
+database.timezone=Asia/Kolkata
