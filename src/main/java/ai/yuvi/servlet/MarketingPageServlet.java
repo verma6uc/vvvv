@@ -13,9 +13,16 @@ import java.util.logging.Logger;
     "/features", 
     "/solutions", 
     "/agents", 
+    "/docs",
     "/pricing",
     "/signin",
-    "/signup"
+    "/signup",
+    "/blog",
+    "/support",
+    "/about",
+    "/careers",
+    "/contact",
+    "/forgot-password"
 })
 public class MarketingPageServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(MarketingPageServlet.class.getName());
@@ -42,11 +49,32 @@ public class MarketingPageServlet extends HttpServlet {
             case "/pricing":
                 jspPath = "/WEB-INF/jsp/pages/marketing/pricing/index.jsp";
                 break;
+            case "/docs":
+                jspPath = "/WEB-INF/jsp/pages/marketing/docs/index.jsp";
+                break;
+            case "/blog":
+                jspPath = "/WEB-INF/jsp/pages/marketing/blog/index.jsp";
+                break;
+            case "/support":
+                jspPath = "/WEB-INF/jsp/pages/marketing/support/index.jsp";
+                break;
+            case "/about":
+                jspPath = "/WEB-INF/jsp/pages/marketing/company/about.jsp";
+                break;
+            case "/careers":
+                jspPath = "/WEB-INF/jsp/pages/marketing/company/careers.jsp";
+                break;
+            case "/contact":
+                jspPath = "/WEB-INF/jsp/pages/marketing/company/contact.jsp";
+                break;
             case "/signin":
                 jspPath = "/WEB-INF/jsp/pages/marketing/auth/signin.jsp";
                 break;
             case "/signup":
                 jspPath = "/WEB-INF/jsp/pages/marketing/auth/signup.jsp";
+                break;
+            case "/forgot-password":
+                jspPath = "/WEB-INF/jsp/pages/marketing/auth/forgot-password.jsp";
                 break;
             default:
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);

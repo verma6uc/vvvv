@@ -28,3 +28,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented responsive design with mobile-first approach
 - Added dark theme with CSS variables for easy customization
 - Integrated Feather Icons for consistent iconography
+- Added comprehensive URL mapping documentation (URLS.md)
+- Extended MarketingPageServlet to handle all marketing routes
