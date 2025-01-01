@@ -1,13 +1,14 @@
 :root {
   /* Theme colors */
-  --bg-primary: #111111;
-  --bg-secondary: #1a1a1a;
-  --bg-elevated: #2c2c2c;
+  --bg-primary: #0A0E1D;
+  --bg-secondary: #111627;
+  --bg-elevated: #1A2035;
   --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
+  --text-secondary: #8B9AB7;
   --accent-color: #08A0F8;
   --accent-gradient: linear-gradient(90deg, #08A0F8 0%, #22D3AC 100%);
-  --border-color: #2d2d2d;
+  --border-color: #2A3146;
+  --code-bg: #0D1117;
   
   /* Layout */
   --header-height: 60px;
@@ -83,18 +84,25 @@ body {
 
 /* Buttons */
 .btn {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s;
   border: none;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .btn-primary {
   background: var(--accent-gradient);
   color: var(--text-primary);
+  box-shadow: 0 4px 15px rgba(8, 160, 248, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(8, 160, 248, 0.4);
 }
 
 .btn-outline {
@@ -105,12 +113,18 @@ body {
 
 .btn-outline:hover {
   border-color: var(--accent-color);
+  background: rgba(8, 160, 248, 0.1);
 }
 
 /* Hero sections */
 .hero {
   padding: calc(var(--header-height) + 4rem) 0 4rem;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
 .hero h1 {
@@ -118,6 +132,9 @@ body {
   font-weight: 700;
   margin-bottom: 1.5rem;
   line-height: 1.2;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
@@ -127,157 +144,106 @@ body {
   margin: 0 auto 2rem;
 }
 
-/* Cards */
-.card {
-  background-color: var(--bg-elevated);
+/* Code blocks */
+.code-window {
+  background: var(--code-bg);
   border-radius: 8px;
-  padding: 2rem;
-  border: 1px solid var(--border-color);
-}
-
-/* Forms */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--text-secondary);
-}
-
-.form-control {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  color: var(--text-primary);
-  font-family: var(--font-family);
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: var(--accent-color);
-}
-
-/* Grid system */
-.grid {
-  display: grid;
-  gap: 2rem;
-}
-
-.grid-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-/* Agent Cards */
-.agent-card {
+  padding: 1rem;
+  margin: 2rem 0;
   position: relative;
   overflow: hidden;
 }
 
-.agent-header {
+.code-window::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px 8px 0 0;
+}
+
+.code-dots {
+  position: absolute;
+  top: 10px;
+  left: 10px;
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  gap: 6px;
+}
+
+.code-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.code-dot.red { background: #FF5F56; }
+.code-dot.yellow { background: #FFBD2E; }
+.code-dot.green { background: #27C93F; }
+
+/* Features grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.feature-card {
+  background: var(--bg-elevated);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 
-.agent-icon {
-  width: 24px;
-  height: 24px;
-  color: var(--accent-color);
-}
-
-.agent-features {
-  list-style: none;
-  margin: 1rem 0;
-  padding: 0;
-}
-
-.agent-features li {
-  margin: 0.5rem 0;
-  padding-left: 1.5rem;
+/* Process steps */
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem 0;
   position: relative;
 }
 
-.agent-features li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  background: var(--accent-color);
-  border-radius: 50%;
+.process-step {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
-/* Workflow Diagram */
-.workflow-diagram {
+.process-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--bg-elevated);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-.workflow-circle {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: var(--bg-elevated);
-  position: relative;
-}
-
-.workflow-circle.active {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 20px rgba(8, 160, 248, 0.2);
-}
-
-.processing-indicator {
-  position: absolute;
-  bottom: -25px;
-  font-size: 0.875rem;
+  margin: 0 auto 1rem;
   color: var(--accent-color);
 }
 
-/* Capabilities */
-.capability {
-  margin: 1rem 0;
-}
-
-.progress-bar {
-  height: 6px;
-  background: var(--bg-elevated);
-  border-radius: 3px;
-  margin-top: 0.5rem;
-  position: relative;
-}
-
-.progress-bar::after {
-  content: '';
+.process-line {
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: var(--progress);
-  background: var(--accent-gradient);
-  border-radius: 3px;
+  top: 32px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--border-color);
+  z-index: 0;
 }
 
 /* Animations */
@@ -298,15 +264,20 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr;
-  }
-  
   .hero h1 {
     font-size: 2.5rem;
   }
 
   .nav-links {
+    display: none;
+  }
+
+  .process-steps {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .process-line {
     display: none;
   }
 }

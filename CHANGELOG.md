@@ -37,3 +37,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   * AuthServlet for authentication and user management
   * CompanyServlet for about, careers, and contact pages
   * ResourcesServlet for documentation, blog, and support
+- Updated design with modern dark theme:
+  * Added code window component with syntax highlighting
+  * Implemented process steps visualization
+  * Created feature cards with hover effects
+  * Added gradient text and button effects
+  * Improved responsive layout and animations
