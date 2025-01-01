@@ -16,3 +16,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Security headers and encoding filters
 - Basic web interface with health status display
 - Project documentation (README.md)
+- Added company logo to web interface
+- Updated web interface with dark theme
